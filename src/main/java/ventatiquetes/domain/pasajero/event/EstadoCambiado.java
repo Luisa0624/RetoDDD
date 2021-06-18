@@ -8,7 +8,7 @@ public class EstadoCambiado extends DomainEvent {
 
     private final Estado estado;
 
-    public EstadoCambiado(TiqueteId tiqueteid, Estado estado) {
+    public EstadoCambiado(Estado estado) {
         super("aerolinea.ventatiquetes.domain.pasajero.estadocambiado");
         this.estado=estado;
     }

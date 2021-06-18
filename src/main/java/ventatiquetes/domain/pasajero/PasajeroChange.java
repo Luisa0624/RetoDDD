@@ -9,7 +9,11 @@ public class PasajeroChange extends EventChange {
 
         apply((PasajeroRegistrado event) ->{
             pasajero.nombrecompleto=event.getNombrecompleto();
+            pasajero.datos=event.getDatos();
+            pasajero.pago=event.getPago();
+            pasajero.tiquete=event.getTiquete();
         });
+
         apply((NombreModificado event) ->{
             pasajero.nombrecompleto=event.getNombre();
         });

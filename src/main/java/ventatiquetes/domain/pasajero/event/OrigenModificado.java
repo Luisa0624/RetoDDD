@@ -8,7 +8,7 @@ public class OrigenModificado extends DomainEvent {
 
     private final Origen origen;
 
-    public OrigenModificado(TiqueteId tiqueteid, Origen origen) {
+    public OrigenModificado(Origen origen) {
         super("aerolinea.ventatiquetes.domain.pasajero.origencambiado");
         this.origen=origen;
     }

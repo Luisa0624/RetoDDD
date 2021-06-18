@@ -6,16 +6,16 @@ import ventatiquetes.domain.vuelo.values.VueloId;
 
 public class CambiarTurnodePiloto implements Command {
 
-    private final VueloId vueloid;
+    private final VueloId vueloId;
     private final Turno turno;
 
-    public CambiarTurnodePiloto(VueloId vueloid, Turno turno) {
-        this.vueloid = vueloid;
+    public CambiarTurnodePiloto(VueloId vueloId, Turno turno) {
+        this.vueloId = vueloId;
         this.turno = turno;
     }
 
-    public VueloId getVueloid() {
-        return vueloid;
+    public VueloId getvueloId() {
+        return vueloId;
     }
 
     public Turno getTurno() {

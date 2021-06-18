@@ -7,15 +7,15 @@ import ventatiquetes.domain.vuelo.values.VueloId;
 public class CambiarNombrePiloto implements Command {
 
     private final NombrePiloto nombrepiloto;
-    private final VueloId vueloid;
+    private final VueloId vueloId;
 
-    public CambiarNombrePiloto(NombrePiloto nombrepiloto, VueloId vueloid) {
+    public CambiarNombrePiloto(NombrePiloto nombrepiloto, VueloId vueloId) {
         this.nombrepiloto = nombrepiloto;
-        this.vueloid = vueloid;
+        this.vueloId = vueloId;
     }
 
-    public VueloId getVueloid() {
-        return vueloid;
+    public VueloId getvueloId() {
+        return vueloId;
     }
 
     public NombrePiloto getNombrepiloto() {

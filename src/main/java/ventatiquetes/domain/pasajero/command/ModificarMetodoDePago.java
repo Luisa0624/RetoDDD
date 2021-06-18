@@ -4,19 +4,19 @@ import co.com.sofka.domain.generic.Command;
 import ventatiquetes.domain.pasajero.values.MetododePago;
 import ventatiquetes.domain.pasajero.values.PasajeroId;
 
-public class modificarmetododepago implements Command {
+public class ModificarMetodoDePago implements Command {
 
-    private final PasajeroId pasajeroid;
+    private final PasajeroId pasajeroId;
     private final MetododePago metododepago;
 
 
-    public modificarmetododepago(PasajeroId pasajeroid, MetododePago metododepago) {
-        this.pasajeroid = pasajeroid;
+    public ModificarMetodoDePago(PasajeroId pasajeroId, MetododePago metododepago) {
+        this.pasajeroId = pasajeroId;
         this.metododepago = metododepago;
     }
 
-    public PasajeroId getPasajeroid() {
-        return pasajeroid;
+    public PasajeroId getpasajeroId() {
+        return pasajeroId;
     }
 
     public MetododePago getMetododepago() {

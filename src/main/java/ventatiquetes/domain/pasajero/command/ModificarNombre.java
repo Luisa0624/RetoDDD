@@ -4,19 +4,19 @@ import co.com.sofka.domain.generic.Command;
 import ventatiquetes.domain.pasajero.values.NombreCompleto;
 import ventatiquetes.domain.pasajero.values.PasajeroId;
 
-public class modificarnombre implements Command {
+public class ModificarNombre implements Command {
 
-    private final PasajeroId pasajeroid;
+    private final PasajeroId pasajeroId;
     private final NombreCompleto nombrecompleto;
 
 
-    public modificarnombre(PasajeroId pasajeroid, NombreCompleto nombrecompleto) {
-        this.pasajeroid = pasajeroid;
+    public ModificarNombre(PasajeroId pasajeroId, NombreCompleto nombrecompleto) {
+        this.pasajeroId = pasajeroId;
         this.nombrecompleto = nombrecompleto;
     }
 
-    public PasajeroId getPasajeroid() {
-        return pasajeroid;
+    public PasajeroId getpasajeroId() {
+        return pasajeroId;
     }
 
     public NombreCompleto getNombrecompleto() {

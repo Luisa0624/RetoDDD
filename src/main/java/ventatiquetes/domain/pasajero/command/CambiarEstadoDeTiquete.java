@@ -4,13 +4,13 @@ import co.com.sofka.domain.generic.Command;
 import ventatiquetes.domain.pasajero.values.Estado;
 import ventatiquetes.domain.pasajero.values.PasajeroId;
 
-public class cambiarestadodetiquete implements Command {
+public class CambiarEstadoDeTiquete implements Command {
 
-    private PasajeroId pasajeroid;
+    private PasajeroId pasajeroId;
     private final Estado estado;
 
-    public cambiarestadodetiquete(PasajeroId pasajeroid, Estado estado) {
-        this.pasajeroid = pasajeroid;
+    public CambiarEstadoDeTiquete(PasajeroId pasajeroId, Estado estado) {
+        this.pasajeroId = pasajeroId;
         this.estado = estado;
     }
 
@@ -18,7 +18,7 @@ public class cambiarestadodetiquete implements Command {
         return estado;
     }
 
-    public PasajeroId getPasajeroid() {
-        return pasajeroid;
+    public PasajeroId getpasajeroId() {
+        return pasajeroId;
     }
 }

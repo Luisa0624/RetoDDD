@@ -8,7 +8,7 @@ public class DatosId extends Identity {
 
     }
 
-    private DatosId(String id){
+    public DatosId(String id){
         super(id);
     }
 

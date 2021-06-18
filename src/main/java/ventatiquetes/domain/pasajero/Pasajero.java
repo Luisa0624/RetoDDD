@@ -15,9 +15,9 @@ public class Pasajero extends AggregateEvent <PasajeroId> {
     protected Datos datos;
     protected Tiquete tiquete;
 
-    public Pasajero(PasajeroId entityId, NombreCompleto nombrecompleto) {
-        super(entityId);
-        appendChange(new PasajeroRegistrado(nombrecompleto)).apply();
+    public Pasajero(PasajeroId pasajeroId, NombreCompleto nombrecompleto, Datos datos, Pago pago, Tiquete tiquete) {
+        super(pasajeroId);
+        appendChange(new PasajeroRegistrado(pasajeroId, nombrecompleto, datos, pago, tiquete)).apply();
     }
 
     private  Pasajero(PasajeroId entityId){
@@ -33,29 +33,29 @@ public class Pasajero extends AggregateEvent <PasajeroId> {
     }
 
 //comportamientos
-    public void modificarnombre(NombreCompleto nombrecompleto){
+    public void modificarNombrePasajero(NombreCompleto nombrecompleto){
         Objects.requireNonNull(nombrecompleto);
         appendChange(new NombreModificado(nombrecompleto)).apply();
     }
 
-    public void modificartelefono(DatosId datosid, Telefono telefono){
+    public void modificarTelefonoPasajero(Telefono telefono){
         Objects.requireNonNull(telefono);
-        appendChange(new TelefonoModificado(datosid, telefono)).apply();
+        appendChange(new TelefonoModificado(telefono)).apply();
     }
-    public void modificarorigendetiquete(TiqueteId tiqueteid, Origen origen){
+    public void modificarOrigenDeTiquete(Origen origen){
         Objects.requireNonNull(origen);
-        appendChange(new OrigenModificado(tiqueteid, origen)).apply();
+        appendChange(new OrigenModificado(origen)).apply();
     }
-    public void modificardestinodetiquete(TiqueteId tiqueteid, Destino destino){
+    public void modificardestinodetiquete(Destino destino){
         Objects.requireNonNull(destino);
-        appendChange(new DestinoModificado(tiqueteid, destino)).apply();
+        appendChange(new DestinoModificado(destino)).apply();
     }
 
-    public void cambiarestadodetiquete(TiqueteId tiqueteid, Estado estado){
+    public void cambiarEstadoDeTiquete( Estado estado){
         Objects.requireNonNull(estado);
-        appendChange(new EstadoCambiado(tiqueteid, estado)).apply();
+        appendChange(new EstadoCambiado(estado)).apply();
     }
-    public void modificarmetododepago(MetododePago metododepago){
+    public void modificarMetodoDePago(MetododePago metododepago){
         Objects.requireNonNull(metododepago);
         appendChange(new TipoDePagoModificado(metododepago)).apply();
     }

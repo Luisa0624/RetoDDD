@@ -8,7 +8,7 @@ public class TiqueteId extends Identity {
 
     }
 
-    private TiqueteId(String id){
+    public TiqueteId(String id){
         super(id);
     }
 

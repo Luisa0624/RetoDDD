@@ -11,36 +11,39 @@ import org.mockito.Mock;
 import ventatiquetes.domain.vuelo.Aeropuerto;
 import ventatiquetes.domain.vuelo.Avion;
 import ventatiquetes.domain.vuelo.Piloto;
-import ventatiquetes.domain.vuelo.command.CambiarEstadoDeAeropuerto;
-import ventatiquetes.domain.vuelo.event.EstadoCambiadoDelAeropuerto;
+import ventatiquetes.domain.vuelo.command.CambiarDuracionDelVuelo;
+import ventatiquetes.domain.vuelo.command.CambiarTurnodePiloto;
+import ventatiquetes.domain.vuelo.event.DuracionCambiada;
+import ventatiquetes.domain.vuelo.event.TurnoCambiado;
 import ventatiquetes.domain.vuelo.event.VueloCreado;
 import ventatiquetes.domain.vuelo.values.*;
 
 import java.util.List;
 
+import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
 
-class cambiarEstadoDeAeropuertoUseCaseTest {
+class CambiarTurnoDePilotoUseCaseTest {
 
-    private CambiarEstadoDeAeropuertoUseCase cambiarEstadoDeAeropuertoUseCase;
+    private CambiarTurnoDePilotoUseCase cambiarTurnoDePilotoUseCase;
     @Mock
     private DomainEventRepository repository;
 
     @BeforeEach
     public void setup(){
-        cambiarEstadoDeAeropuertoUseCase= new CambiarEstadoDeAeropuertoUseCase();
+        cambiarTurnoDePilotoUseCase= new CambiarTurnoDePilotoUseCase();
         repository=mock(DomainEventRepository.class);
-        cambiarEstadoDeAeropuertoUseCase.addRepository(repository);
+        cambiarTurnoDePilotoUseCase.addRepository(repository);
     }
 
     @Test
-    void cambiarEstadohappyPath(){
+    void cambiarTurnohappyPath(){
         //arrage
-        var command = new CambiarEstadoDeAeropuerto(
+        var command = new CambiarTurnodePiloto(
                 VueloId.of("xxx-xxx"),
-                new Estado("Cerrado")
+                new Turno("Noche")
         );
 
         when(repository.getEventsBy(any())).thenReturn(events());
@@ -49,13 +52,13 @@ class cambiarEstadoDeAeropuertoUseCaseTest {
         //Act
         var response= UseCaseHandler.getInstance().
                 setIdentifyExecutor("xxx-xxx").syncExecutor(
-                cambiarEstadoDeAeropuertoUseCase, new RequestCommand<>(command)
+                cambiarTurnoDePilotoUseCase, new RequestCommand<>(command)
         ).orElseThrow();
 
-        var event=(EstadoCambiadoDelAeropuerto)response.getDomainEvents().get(0);
+        var event=(TurnoCambiado)response.getDomainEvents().get(0);
 
         //Asserts:
-        Assertions.assertEquals("Cerrado", event.getEstado().value());
+        Assertions.assertEquals("Noche", event.getTurno().value());
 
     }
 
@@ -81,6 +84,5 @@ class cambiarEstadoDeAeropuertoUseCaseTest {
 
         ));
     }
-
 
 }

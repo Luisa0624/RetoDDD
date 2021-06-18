@@ -8,7 +8,7 @@ public class TelefonoModificado extends DomainEvent {
 
     private final Telefono telefono;
 
-    public TelefonoModificado(DatosId datosid, Telefono telefono) {
+    public TelefonoModificado(Telefono telefono) {
         super("aerolinea.ventatiquetes.domain.pasajero.telefonomodificado");
         this.telefono=telefono;
     }

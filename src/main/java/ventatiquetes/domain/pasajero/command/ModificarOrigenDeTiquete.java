@@ -4,18 +4,18 @@ import co.com.sofka.domain.generic.Command;
 import ventatiquetes.domain.pasajero.values.Origen;
 import ventatiquetes.domain.pasajero.values.PasajeroId;
 
-public class modificarorigendetiquete implements Command {
+public class ModificarOrigenDeTiquete implements Command {
 
-    private final PasajeroId pasajeroid;
+    private final PasajeroId pasajeroId;
     private final Origen origen;
 
-    public modificarorigendetiquete(PasajeroId pasajeroid, Origen origen) {
-        this.pasajeroid = pasajeroid;
+    public ModificarOrigenDeTiquete(PasajeroId pasajeroId, Origen origen) {
+        this.pasajeroId = pasajeroId;
         this.origen = origen;
     }
 
-    public PasajeroId getPasajeroid() {
-        return pasajeroid;
+    public PasajeroId getpasajeroId() {
+        return pasajeroId;
     }
 
     public Origen getOrigen() {

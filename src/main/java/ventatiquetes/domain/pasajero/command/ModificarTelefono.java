@@ -4,18 +4,18 @@ import co.com.sofka.domain.generic.Command;
 import ventatiquetes.domain.pasajero.values.PasajeroId;
 import ventatiquetes.domain.pasajero.values.Telefono;
 
-public class modificartelefono implements Command {
+public class ModificarTelefono implements Command {
 
-    private final PasajeroId pasajeroid;
+    private final PasajeroId pasajeroId;
     private final Telefono telefono;
 
-    public modificartelefono(PasajeroId pasajeroid, Telefono telefono) {
-        this.pasajeroid = pasajeroid;
+    public ModificarTelefono(PasajeroId pasajeroId, Telefono telefono) {
+        this.pasajeroId = pasajeroId;
         this.telefono = telefono;
     }
 
-    public PasajeroId getPasajeroid() {
-        return pasajeroid;
+    public PasajeroId getpasajeroId() {
+        return pasajeroId;
     }
 
     public Telefono getTelefono() {
