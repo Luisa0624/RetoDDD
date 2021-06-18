@@ -8,7 +8,7 @@ public class AeropuertoId extends Identity {
 
     }
 
-    private AeropuertoId(String id){
+    public AeropuertoId(String id){
         super(id);
     }
 

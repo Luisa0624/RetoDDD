@@ -7,8 +7,17 @@ public class VueloChange extends EventChange {
 
     public VueloChange(Vuelo vuelo) {
 
+        apply((VueloCreado event)->{
+            vuelo.nombrevuelo=event.getNombrevuelo();
+            vuelo.trayecto=event.getTrayecto();
+            vuelo.duracion=event.getDuracion();
+            vuelo.fechahora=event.getFechahora();
+            vuelo.aeropuerto=event.getAeropuerto();
+            vuelo.avion=event.getAvion();
+            vuelo.piloto=event.getPiloto();
+        });
         apply((TrayectoriaCambiada event) ->{
-           vuelo.trayecto=event.getTrayectoria();
+           vuelo.trayecto=event.getTrayecto();
         });
 
         apply((DuracionCambiada event) ->{
@@ -19,7 +28,7 @@ public class VueloChange extends EventChange {
             vuelo.fechahora=event.getFechahora();
         });
 
-        apply((EstadoCambiado event) ->{
+        apply((EstadoCambiadoDelAeropuerto event) ->{
             vuelo.aeropuerto.cambiarestado(event.getEstado());
         });
 

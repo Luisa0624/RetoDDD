@@ -4,13 +4,13 @@ import co.com.sofka.domain.generic.Command;
 import ventatiquetes.domain.vuelo.values.Duracion;
 import ventatiquetes.domain.vuelo.values.VueloId;
 
-public class CambiarDuracion implements Command {
+public class CambiarDuracionDelVuelo implements Command {
 
-    private final VueloId vueloid;
+    private final VueloId vueloId;
     private final Duracion duracion;
 
-    public CambiarDuracion(VueloId vueloid, Duracion duracion) {
-        this.vueloid = vueloid;
+    public CambiarDuracionDelVuelo(VueloId vueloId, Duracion duracion) {
+        this.vueloId = vueloId;
         this.duracion = duracion;
     }
 
@@ -18,7 +18,7 @@ public class CambiarDuracion implements Command {
         return duracion;
     }
 
-    public VueloId getVueloid() {
-        return vueloid;
+    public VueloId getVueloId() {
+        return vueloId;
     }
 }

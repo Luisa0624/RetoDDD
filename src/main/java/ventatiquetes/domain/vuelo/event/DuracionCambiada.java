@@ -8,7 +8,7 @@ public class DuracionCambiada extends DomainEvent {
     private final Duracion duracion;
 
     public DuracionCambiada(Duracion duracion) {
-        super("aerolinea.ventatiquetes.domain.vuelo.duracioncambiada");
+        super("ventatiquetes.vuelo.duracioncambiada");
         this.duracion=duracion;
     }
 

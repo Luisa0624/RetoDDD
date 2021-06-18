@@ -6,16 +6,16 @@ import ventatiquetes.domain.vuelo.values.VueloId;
 
 public class CambiarFechayHora implements Command {
 
-    private final VueloId vueloid;
+    private final VueloId vueloId;
     private final FechaHora fechahora;
 
-    public CambiarFechayHora(VueloId vueloid, FechaHora fechahora) {
-        this.vueloid = vueloid;
+    public CambiarFechayHora(VueloId vueloId, FechaHora fechahora) {
+        this.vueloId = vueloId;
         this.fechahora = fechahora;
     }
 
-    public VueloId getVueloid() {
-        return vueloid;
+    public VueloId getvueloId() {
+        return vueloId;
     }
 
     public FechaHora getFechahora() {

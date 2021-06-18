@@ -6,14 +6,14 @@ import ventatiquetes.domain.vuelo.values.VueloId;
 
 public class TrayectoriaCambiada extends DomainEvent {
 
-    private final Trayectoria trayectoria;
+    private final Trayectoria trayecto;
 
-    public TrayectoriaCambiada(VueloId vueloid, Trayectoria trayectoria) {
-        super("aerolinea.ventatiquetes.domain.vuelo.trayectoriacambiada");
-        this.trayectoria=trayectoria;
+    public TrayectoriaCambiada(Trayectoria trayecto) {
+        super("ventatiquetes.vuelo.trayectoriacambiada");
+        this.trayecto=trayecto;
     }
 
-    public Trayectoria getTrayectoria() {
-        return trayectoria;
+    public Trayectoria getTrayecto() {
+        return trayecto;
     }
 }

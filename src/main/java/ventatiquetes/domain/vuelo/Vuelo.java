@@ -10,6 +10,7 @@ import java.util.Objects;
 
 public class Vuelo extends AggregateEvent <VueloId> {
 
+    protected VueloId vueloId;
     protected NombreVuelo nombrevuelo;
     protected Trayectoria trayecto;
     protected Duracion duracion;
@@ -18,55 +19,56 @@ public class Vuelo extends AggregateEvent <VueloId> {
     protected Piloto piloto;
     protected Avion avion;
 
-    public Vuelo(VueloId entityId, NombreVuelo nombrevuelo, Trayectoria trayecto, Duracion duracion, FechaHora fechahora) {
-        super(entityId);
-        appendChange(new VueloCreado(nombrevuelo)).apply();
+    public Vuelo(VueloId vueloId, NombreVuelo nombrevuelo, Trayectoria trayecto, Duracion duracion, FechaHora fechahora, Aeropuerto aeropuerto, Avion avion, Piloto piloto) {
+        super(vueloId);
+        appendChange(new VueloCreado(vueloId, nombrevuelo,trayecto,duracion,fechahora,aeropuerto,avion,piloto)).apply();
     }
 
-    private  Vuelo(VueloId entityId){
-        super(entityId);
+    private  Vuelo(VueloId vueloId){
+        super(vueloId);
         subscribe(new VueloChange(this));
     }
 
     //factoria que permite crear el agregado
-    public static Vuelo from(VueloId vueloid, List<DomainEvent> events){
-        var vuelo = new Vuelo(vueloid);
+    public static Vuelo from(VueloId entityId, List<DomainEvent> events){
+        var vuelo = new Vuelo(entityId);
         events.forEach(vuelo::applyEvent);
         return vuelo;
     }
 
     //comportamientos
-    public void cambiartrayectoria( VueloId vueloid, Trayectoria trayecto){
+
+    public void cambiarTrayectoriaDelVuelo(Trayectoria trayecto){
         Objects.requireNonNull(trayecto);
-        appendChange(new TrayectoriaCambiada(vueloid, trayecto)).apply();
+        appendChange(new TrayectoriaCambiada(trayecto)).apply();
     }
 
-    public void cambiarduracion(Duracion duracion){
+    public void cambiarDuracionDelVuelo(Duracion duracion){
         Objects.requireNonNull(duracion);
         appendChange(new DuracionCambiada(duracion)).apply();
     }
 
-    public void cambiarfechayhora(FechaHora fechahora){
+    public void cambiarFechayHoraDelVuelo(FechaHora fechahora){
         Objects.requireNonNull(fechahora);
         appendChange(new FechayHoraCambiada(fechahora)).apply();
     }
 
-    public void cambiarestadodeaeropuerto(Estado estado){
+    public void cambiarEstadoDeAeropuerto(Estado estado){
         Objects.requireNonNull(estado);
-        appendChange(new EstadoCambiado(estado)).apply();
+        appendChange(new EstadoCambiadoDelAeropuerto(estado)).apply();
     }
 
-    public void cambiarrutadelavion(Ruta ruta){
+    public void cambiarRutaDelAvion(Ruta ruta){
         Objects.requireNonNull(ruta);
         appendChange(new RutaCambiada(ruta)).apply();
     }
 
-    public void cambiarturnodepiloto(Turno turno){
+    public void cambiarTurnoDePiloto(Turno turno){
         Objects.requireNonNull(turno);
         appendChange(new TurnoCambiado(turno)).apply();
     }
 
-    public void cambiarnombrepiloto(NombrePiloto nombrepiloto){
+    public void cambiarNombrePiloto(NombrePiloto nombrepiloto){
         Objects.requireNonNull(nombrepiloto);
         appendChange(new NombrePilotoCambiado(nombrepiloto)).apply();
     }

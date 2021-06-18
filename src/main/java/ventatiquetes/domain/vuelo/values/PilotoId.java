@@ -8,7 +8,7 @@ public class PilotoId extends Identity {
 
     }
 
-    private PilotoId(String id){
+    public PilotoId(String id){
         super(id);
     }
 

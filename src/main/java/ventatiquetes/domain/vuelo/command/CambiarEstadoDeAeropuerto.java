@@ -6,16 +6,16 @@ import ventatiquetes.domain.vuelo.values.VueloId;
 
 public class CambiarEstadoDeAeropuerto implements Command {
 
-    private final VueloId vueloid;
+    private final VueloId vueloId;
     private final Estado estado;
 
-    public CambiarEstadoDeAeropuerto(VueloId vueloid, Estado estado) {
-        this.vueloid = vueloid;
+    public CambiarEstadoDeAeropuerto(VueloId vueloId, Estado estado) {
+        this.vueloId = vueloId;
         this.estado = estado;
     }
 
-    public VueloId getVueloid() {
-        return vueloid;
+    public VueloId getvueloId() {
+        return vueloId;
     }
 
     public Estado getEstado() {

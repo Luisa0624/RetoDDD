@@ -23,8 +23,7 @@ public class Aeropuerto extends Entity<AeropuertoId> {
 
     //comportamientos
     public void cambiarestado(Estado estado){
-
-        this.estado= Objects.requireNonNull(estado);
+        this.estado= estado;
     }
     //propiedades
 

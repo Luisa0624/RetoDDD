@@ -8,7 +8,7 @@ public class FechayHoraCambiada extends DomainEvent {
     private final FechaHora fechahora;
 
     public FechayHoraCambiada(FechaHora fechahora) {
-        super("aerolinea.ventatiquetes.domain.vuelo.fechayhoracambiada");
+        super("ventatiquetes.vuelo.fechayhoracambiada");
         this.fechahora=fechahora;
     }
 

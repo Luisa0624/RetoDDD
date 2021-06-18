@@ -6,7 +6,8 @@ public class VueloId extends Identity {
 
     public VueloId(){
     }
-    private VueloId(String id){
+
+    public VueloId(String id){
         super(id);
     }
 
